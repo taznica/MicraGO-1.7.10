@@ -3,6 +3,7 @@ package com.example.examplemod;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class ItemCube extends Item {
@@ -26,5 +27,11 @@ public class ItemCube extends Item {
         }
 
         return itemStack;
+    }
+
+    public IIcon getIconForEntity(EntityCube entityCube) {
+        // アイテムと同じアイコンを使う
+        // 別のテクスチャを使う場合はregisterIconsで登録したアイコンを返す
+        return getIconFromDamage(0);
     }
 }
