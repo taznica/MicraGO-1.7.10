@@ -21,7 +21,7 @@ public class ItemCube extends Item {
         world.playSoundAtEntity(entityPlayer, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 
         if(!world.isRemote) {
-            EntityCube entityCube = new EntityCube(world, EntityPlayer);
+            EntityCube entityCube = new EntityCube(world, entityPlayer);
             world.spawnEntityInWorld(entityCube);
         }
 
