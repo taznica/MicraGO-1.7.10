@@ -23,7 +23,7 @@ public class ExampleMod
 
     public void registerCube() {
         GameRegistry.registerItem(itemCube, "itemCube");
-        EntityRegistry.registerModEntity(EntityCube.class, "monsterball", EntityRegistry.findGlobalUniqueEntityId(), this, 10, 10, true);
+        EntityRegistry.registerModEntity(EntityCube.class, "entityCube", EntityRegistry.findGlobalUniqueEntityId(), this, 10, 10, true);
         RenderingRegistry.registerEntityRenderingHandler(EntityCube.class, new RenderCube(itemCube));
     }
 }
