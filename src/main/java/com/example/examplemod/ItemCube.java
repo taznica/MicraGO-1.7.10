@@ -11,6 +11,7 @@ public class ItemCube extends Item {
         super();
         setUnlocalizedName(ExampleMod.MODID + "_itemCube");
         setTextureName(ExampleMod.MODID + ":itemCube");
+        setCreativeTab(ExampleMod.tabGo);
     }
 
     @Override
