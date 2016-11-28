@@ -20,7 +20,6 @@ public class RenderCube extends Render {
         this.item = item;
     }
 
-    @Override
     public void doRender(Entity p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_) {
         IIcon iicon = this.item.getIconFromDamage(p_76986_1_.getDataWatcher().getWatchableObjectByte(8));
 
@@ -39,38 +38,37 @@ public class RenderCube extends Render {
                 float f4 = (float) (i & 255) / 255.0F;
                 GL11.glColor3f(f2, f3, f4);
                 GL11.glPushMatrix();
-                this.drawIcon(tessellator, ItemPotion.func_94589_d("overlay"));
+                this.func_77026_a(tessellator, ItemPotion.func_94589_d("overlay"));
                 GL11.glPopMatrix();
                 GL11.glColor3f(1.0F, 1.0F, 1.0F);
             }
 
-            this.drawIcon(tessellator, iicon);
+            this.func_77026_a(tessellator, iicon);
             GL11.glDisable(GL12.GL_RESCALE_NORMAL);
             GL11.glPopMatrix();
         }
     }
 
-    @Override
     protected ResourceLocation getEntityTexture(Entity p_110775_1_) {
         return TextureMap.locationItemsTexture;
     }
 
-    private void drawIcon(Tessellator tessellator, IIcon icon) {
-        float f = icon.getMinU();
-        float f1 = icon.getMaxU();
-        float f2 = icon.getMinV();
-        float f3 = icon.getMaxV();
+    private void func_77026_a(Tessellator p_77026_1_, IIcon p_77026_2_) {
+        float f = p_77026_2_.getMinU();
+        float f1 = p_77026_2_.getMaxU();
+        float f2 = p_77026_2_.getMinV();
+        float f3 = p_77026_2_.getMaxV();
         float f4 = 1.0F;
         float f5 = 0.5F;
         float f6 = 0.25F;
-        GL11.glRotatef(180.0F - renderManager.playerViewY, 0.0F, 1.0F, 0.0F);
-        GL11.glRotatef(-renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
-        tessellator.startDrawingQuads();
-        tessellator.setNormal(0.0F, 1.0F, 0.0F);
-        tessellator.addVertexWithUV((double) (0.0F - f5), (double) (0.0F - f6), 0.0D, (double) f, (double) f3);
-        tessellator.addVertexWithUV((double) (f4 - f5), (double) (0.0F - f6), 0.0D, (double) f1, (double) f3);
-        tessellator.addVertexWithUV((double) (f4 - f5), (double) (f4 - f6), 0.0D, (double) f1, (double) f2);
-        tessellator.addVertexWithUV((double) (0.0F - f5), (double) (f4 - f6), 0.0D, (double) f, (double) f2);
-        tessellator.draw();
+        GL11.glRotatef(180.0F - this.renderManager.playerViewY, 0.0F, 1.0F, 0.0F);
+        GL11.glRotatef(-this.renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
+        p_77026_1_.startDrawingQuads();
+        p_77026_1_.setNormal(0.0F, 1.0F, 0.0F);
+        p_77026_1_.addVertexWithUV((double) (0.0F - f5), (double) (0.0F - f6), 0.0D, (double) f, (double) f3);
+        p_77026_1_.addVertexWithUV((double) (f4 - f5), (double) (0.0F - f6), 0.0D, (double) f1, (double) f3);
+        p_77026_1_.addVertexWithUV((double) (f4 - f5), (double) (f4 - f6), 0.0D, (double) f1, (double) f2);
+        p_77026_1_.addVertexWithUV((double) (0.0F - f5), (double) (f4 - f6), 0.0D, (double) f, (double) f2);
+        p_77026_1_.draw();
     }
 }
