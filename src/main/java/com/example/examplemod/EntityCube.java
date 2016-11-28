@@ -3,6 +3,7 @@ package com.example.examplemod;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
@@ -42,6 +43,9 @@ public class EntityCube extends EntityThrowable {
         for(int i = 0; i < 20; i++) {
             worldObj.spawnParticle("magicCrit", this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
         }
+
+        String name = target.getCommandSenderName();
+        target.entityDropItem(new ItemStack(ExampleMod.itemCube), 1); //ここをfullCubeに差し替え
 
         target.setDead();
         this.setDead();
