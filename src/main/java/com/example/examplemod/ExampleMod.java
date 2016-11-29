@@ -8,7 +8,9 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 @Mod(modid = ExampleMod.MODID, version = ExampleMod.VERSION)
 public class ExampleMod
@@ -34,6 +36,13 @@ public class ExampleMod
         GameRegistry.registerItem(itemCube, "itemCube");
         EntityRegistry.registerModEntity(EntityCube.class, "entityCube", EntityRegistry.findGlobalUniqueEntityId(), this, 10, 10, true);
         RenderingRegistry.registerEntityRenderingHandler(EntityCube.class, new RenderCube(itemCube));
+        GameRegistry.addRecipe(
+                new ItemStack(itemCube, 1),
+                "AAA",
+                "ABA",
+                "AAA",
+                'A', itemCubeIngot,
+                'B', Items.iron_ingot);
     }
 
     public void registerMaterials() {
