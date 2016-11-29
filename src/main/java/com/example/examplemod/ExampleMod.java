@@ -39,5 +39,6 @@ public class ExampleMod
     public void registerMaterials() {
         GameRegistry.registerBlock(blockCubeOre, "blockCubeOre");
         GameRegistry.registerItem(itemCubeIngot, "itemCubeIngot");
+        GameRegistry.registerWorldGenerator(new CubeOreGenerator(blockCubeOre, 200), 1);
     }
 }
