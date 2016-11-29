@@ -6,6 +6,7 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
@@ -19,14 +20,24 @@ public class ExampleMod
 
     public static final Item itemCube = new ItemCube();
 
+    public static final Block blockCubeOre = new BlockCubeOre();
+    public static final Item itemCubeIngot = new ItemCubeIngot();
+
+
     @EventHandler
     public void init(FMLInitializationEvent event) {
         registerCube();
+        registerMaterials();
     }
 
     public void registerCube() {
         GameRegistry.registerItem(itemCube, "itemCube");
         EntityRegistry.registerModEntity(EntityCube.class, "entityCube", EntityRegistry.findGlobalUniqueEntityId(), this, 10, 10, true);
         RenderingRegistry.registerEntityRenderingHandler(EntityCube.class, new RenderCube(itemCube));
+    }
+
+    public void registerMaterials() {
+        GameRegistry.registerBlock(blockCubeOre, "blockCubeOre");
+        GameRegistry.registerItem(itemCubeIngot, "itemCubeIngot");
     }
 }
