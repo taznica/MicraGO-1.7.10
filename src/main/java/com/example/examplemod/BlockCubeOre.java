@@ -14,6 +14,8 @@ public class BlockCubeOre extends Block {
         setBlockName(ExampleMod.MODID + "_blockCubeOre");
         setBlockTextureName(ExampleMod.MODID + ":blockCubeOre");
         setCreativeTab(ExampleMod.tabGo);
+        setHardness(3.0F);
+        setResistance(5.0F);
     }
 
     @Override
