@@ -11,12 +11,16 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.stats.Achievement;
 
 @Mod(modid = ExampleMod.MODID, version = ExampleMod.VERSION)
 public class ExampleMod
 {
     public static final String MODID = "examplemod";
     public static final String VERSION = "1.0";
+
+
+    /* Items and Blocks */
 
     public static final CreativeTabs tabGo = new TabGo("tabGo");
 
@@ -26,10 +30,20 @@ public class ExampleMod
     public static final Item itemCubeIngot = new ItemCubeIngot();
 
 
+
+    /* Achievements */
+
+    public static final String achievementPageName = "MicraGo";
+    public static Achievement gotchaSheep;
+    public static int gotchaSheepID = 90000;
+
+
     @EventHandler
     public void init(FMLInitializationEvent event) {
         registerCube();
         registerMaterials();
+
+        registerAchievements();
     }
 
     public void registerCube() {
@@ -49,5 +63,13 @@ public class ExampleMod
         GameRegistry.registerBlock(blockCubeOre, "blockCubeOre");
         GameRegistry.registerItem(itemCubeIngot, "itemCubeIngot");
         GameRegistry.registerWorldGenerator(new CubeOreGenerator(blockCubeOre, 200), 1);
+    }
+
+    public void achievementGotchaSheep() {
+        gotchaSheep = new Achievement("gotchaSheep", "You gotcha sheep!", 1, 1, new ItemStack(Items.spawn_egg), null).initIndependentStat().registerStat();
+    }
+
+    public void registerAchievements() {
+        achievementGotchaSheep();
     }
 }
