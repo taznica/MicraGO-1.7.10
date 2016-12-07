@@ -12,6 +12,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
+import net.minecraftforge.common.AchievementPage;
 
 @Mod(modid = ExampleMod.MODID, version = ExampleMod.VERSION)
 public class ExampleMod
@@ -33,9 +34,8 @@ public class ExampleMod
 
     /* Achievements */
 
-    public static final String achievementPageName = "MicraGo";
+    public static AchievementPage achievementPageMicraGo;
     public static Achievement gotchaSheep;
-    public static int gotchaSheepID = 90000;
 
 
     @EventHandler
@@ -66,7 +66,10 @@ public class ExampleMod
     }
 
     public void achievementGotchaSheep() {
-        gotchaSheep = new Achievement("gotchaSheep", "You gotcha sheep!", 1, 1, new ItemStack(Items.spawn_egg), null).initIndependentStat().registerStat();
+        gotchaSheep = (new Achievement("gotchaSheep", "You gotcha sheep!", 1, 1, new ItemStack(Items.spawn_egg), null)).initIndependentStat().registerStat();
+
+        achievementPageMicraGo = new AchievementPage("MicraGo", gotchaSheep);
+
     }
 
     public void registerAchievements() {
