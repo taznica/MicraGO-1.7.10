@@ -12,6 +12,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.AchievementPage;
+import net.minecraftforge.common.MinecraftForge;
 
 @Mod(modid = ExampleMod.MODID, version = ExampleMod.VERSION)
 public class ExampleMod
@@ -63,5 +64,6 @@ public class ExampleMod
 
     public void registerAchievements() {
         AchievementPage.registerAchievementPage(MicraGoAchievementsManager.achievementPageMicraGo);
+        MinecraftForge.EVENT_BUS.register(new EntityDropsEventHandler());
     }
 }
