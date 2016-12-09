@@ -11,7 +11,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.stats.Achievement;
 import net.minecraftforge.common.AchievementPage;
 
 @Mod(modid = ExampleMod.MODID, version = ExampleMod.VERSION)
@@ -32,10 +31,6 @@ public class ExampleMod
 
 
 
-    /* Achievements */
-
-    public static AchievementPage achievementPageMicraGo;
-    public static Achievement gotchaSheep;
 
 
     @EventHandler
@@ -65,14 +60,8 @@ public class ExampleMod
         GameRegistry.registerWorldGenerator(new CubeOreGenerator(blockCubeOre, 200), 1);
     }
 
-    public void achievementGotchaSheep() {
-        gotchaSheep = (new Achievement("gotchaSheep", "You gotcha sheep!", 1, 1, new ItemStack(Items.spawn_egg), null)).initIndependentStat().registerStat();
-
-        achievementPageMicraGo = new AchievementPage("MicraGo", gotchaSheep);
-
-    }
 
     public void registerAchievements() {
-        achievementGotchaSheep();
+        AchievementPage.registerAchievementPage(MicraGoAchievementsManager.achievementPageMicraGo);
     }
 }
