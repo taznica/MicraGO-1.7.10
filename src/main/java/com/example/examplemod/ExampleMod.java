@@ -64,6 +64,10 @@ public class ExampleMod
 
     public void registerAchievements() {
         AchievementPage.registerAchievementPage(MicraGoAchievementsManager.achievementPageMicraGo);
-        MinecraftForge.EVENT_BUS.register(new EntityDropsEventHandler());
+
+//        MinecraftForge.EVENT_BUS.register(new EntityDropsEventHandler());
+        MinecraftForge.EVENT_BUS.register(new GetItemEventHandler());
+
+        MinecraftForge.EVENT_BUS.register(new TestEventHandler());
     }
 }
