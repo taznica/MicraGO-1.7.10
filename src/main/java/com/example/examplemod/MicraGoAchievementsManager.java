@@ -7,7 +7,7 @@ import net.minecraftforge.common.AchievementPage;
 
 public class MicraGoAchievementsManager {
 
-    public static Achievement gotchaSheep = (new Achievement("gotchaSheep", "You gotcha sheep!", 1, 1, new ItemStack(Items.spawn_egg), null)).initIndependentStat().registerStat();
+    public static Achievement gotchaSheep = (new Achievement("gotchaSheep", "You gotcha sheep!", 1, 1, new ItemStack(Items.spawn_egg), null)).registerStat();
     public static Achievement gotchaCow = (new Achievement("gotchaCow", "You gotcha cow!", 1, 2, new ItemStack(Items.spawn_egg), null)).registerStat();
 
     public static Achievement[] achievementsList = new Achievement[]{

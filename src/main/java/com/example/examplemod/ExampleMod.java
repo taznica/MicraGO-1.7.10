@@ -11,6 +11,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.stats.Achievement;
 import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -30,6 +31,11 @@ public class ExampleMod
     public static final Block blockCubeOre = new BlockCubeOre();
     public static final Item itemCubeIngot = new ItemCubeIngot();
 
+    public static final Item itemTest = new Item().setCreativeTab(ExampleMod.tabGo).setUnlocalizedName(ExampleMod.MODID + "_itemTest").setTextureName(ExampleMod.MODID + ":itemTest");
+
+    public static AchievementPage testPage;
+    public static Achievement gotchaSheep;
+
 
 
 
@@ -40,6 +46,8 @@ public class ExampleMod
         registerMaterials();
 
         registerAchievements();
+
+        GameRegistry.registerItem(itemTest, "itemTest");
     }
 
     public void registerCube() {
@@ -64,6 +72,7 @@ public class ExampleMod
 
     public void registerAchievements() {
         AchievementPage.registerAchievementPage(MicraGoAchievementsManager.achievementPageMicraGo);
+
 
 //        MinecraftForge.EVENT_BUS.register(new EntityDropsEventHandler());
         MinecraftForge.EVENT_BUS.register(new GetItemEventHandler());
